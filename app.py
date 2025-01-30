@@ -4,7 +4,6 @@ from sqlalchemy import create_engine
 import pandas as pd
 import traceback
 import openai
-from pyngrok import ngrok
 import os
 
 app = Flask(__name__)
