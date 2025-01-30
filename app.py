@@ -10,6 +10,9 @@ import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+@app.route("/")
+def home():
+    return "Flask is running!"
 
 def connectDB():
     db_config = {
