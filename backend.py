@@ -30,7 +30,6 @@ def generate_sql_query(prompt, db_schema):
         for table, columns in db_schema.items()
     )
     openai.api_key = os.getenv('OPENAI_API_KEY')
-    # openai.api_key = "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"
 
     sql_prompt = f"""
     Database Schema:
@@ -126,7 +125,7 @@ def explain_query(sql_query):
     Explain the following SQL query in simple terms:
     {sql_query}
     """
-    openai.api_key = "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"
+    openai.api_key = os.getenv('OPENAI_API_KEY')
 
     response = openai.ChatCompletion.create(
         model="gpt-4",
@@ -151,7 +150,7 @@ def suggest_related_queries(user_query):
     Generate 3 related SQL queries that might also be useful to the user.
     Provide them as a simple list.
     """
-    openai.api_key = "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"
+    openai.api_key = os.getenv('OPENAI_API_KEY')
 
     response = openai.ChatCompletion.create(
         model="gpt-4",
