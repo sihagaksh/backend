@@ -5,6 +5,7 @@ import pandas as pd
 import traceback
 import openai
 from pyngrok import ngrok
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -28,8 +29,8 @@ def generate_sql_query(prompt, db_schema):
         f"Table: {table}, Columns: {', '.join(columns)}"
         for table, columns in db_schema.items()
     )
-
-    openai.api_key = "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"
+    openai.api_key = os.getenv('OPENAI_API_KEY')
+    # openai.api_key = "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"
 
     sql_prompt = f"""
     Database Schema:
