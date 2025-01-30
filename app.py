@@ -8,11 +8,12 @@ from pyngrok import ngrok
 import os
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app,origins=["https://localhost:3000","https://sqlgenerator-kappa.vercel.app/"])  # Enable CORS for all routes
 
-@app.route("/")
-def home():
-    return "Flask is running!"
+@app.route("/query", methods=["POST"])
+def query():
+    data = request.json
+    return jsonify({"message": "Received", "data": data})
 
 def connectDB():
     db_config = {
