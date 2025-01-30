@@ -9,10 +9,10 @@ import os
 app = Flask(__name__)
 CORS(app,origins=["https://localhost:3000","https://sqlgenerator-kappa.vercel.app/"])  # Enable CORS for all routes
 
-@app.route("/query", methods=["POST"])
-def query():
-    data = request.json
-    return jsonify({"message": "Received", "data": data})
+# @app.route("/query", methods=["POST"])
+# def query():
+#     data = request.json
+#     return jsonify({"message": "Received", "data": data})
 
 def connectDB():
     db_config = {
