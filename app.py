@@ -7,8 +7,7 @@ import openai
 import os
 
 app = Flask(__name__)
-CORS(app,origins=["https://localhost:3000","https://sqlgenerator-kappa.vercel.app/"])  # Enable CORS for all routes
-
+CORS(app, resources={r"/query": {"origins": ["https://localhost:3000", "https://sqlgenerator-kappa.vercel.app"]}}, supports_credentials=True)
 # @app.route("/query", methods=["POST"])
 # def query():
 #     data = request.json
@@ -170,6 +169,5 @@ def suggest_related_queries(user_query):
     return suggestions[:3]  # Limit to 3 suggestions
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)  # Render assigns ports dynamically
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 
