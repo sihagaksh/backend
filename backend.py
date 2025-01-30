@@ -167,9 +167,5 @@ def suggest_related_queries(user_query):
     return suggestions[:3]  # Limit to 3 suggestions
 
 if __name__ == '__main__':
-    # Start ngrok tunnel
-    public_url = ngrok.connect(5000)
-    print(f"Public URL: {public_url}")
+    app.run(host='0.0.0.0', port=10000)  # Render assigns ports dynamically
 
-    # Run Flask app
-    app.run(port=5000, debug=False)
