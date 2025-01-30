@@ -1,0 +1,10 @@
+flask
+flask_cors
+sentence-transformers==3.3.1
+scikit-learn==1.5.2
+psycopg2==2.9.10
+pymongo==4.10.1
+numpy==1.26.0
+sqlalchemy>=2.0
+openai==0.28
+gunicorn
