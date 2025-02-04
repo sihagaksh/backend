@@ -7,7 +7,7 @@ import openai
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/query": {"origins": ["https://localhost:3000", "https://sqlgenerator-kappa.vercel.app"]}}, supports_credentials=True)
+CORS(app, resources={r"/query": {"origins": "*"}}, supports_credentials=True)
 # @app.route("/query", methods=["POST"])
 # def query():
 #     data = request.json
