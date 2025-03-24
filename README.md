@@ -4,9 +4,9 @@
 The **Phase 2** of the RISC-V Simulator is a C++ program that simulates the execution of RISC-V machine code generated from Phase 1 (RISC-V Assembler). It reads machine code from `input.mc`, executes it step-by-step, and logs the final register and memory state in `output.mc`.  
 
 ## Team Details
-- **[Aadit Mahajan]**
-- **[Aksh Sihag]**
-- **[Rahul Goyal]**
+- **Aadit Mahajan (2023CSB1091)**
+- **Aksh Sihag (2023CSB1097)**
+- **Rahul Goyal (2023CSB1150)**
 
 ---
 
@@ -40,6 +40,8 @@ g++ code.cpp -o code
 ### Running the GUI Simulator 
 ```bash
 cd gui_simulator
+```
+```bash
 npm install
 ```
 ### To run the development server
