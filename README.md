@@ -53,15 +53,19 @@ npm run dev
 
 ### *Input File (input.mc)*  
 Format:  
-
+```bash
 <PC> <Instruction>  
-#Data Segment  
-<Address> <Value>  
+0x0 0x10000937
 
+#Data Segment  
+<Address> <Value> 
+0x10000000 0x0000000A 10
+
+```
 
 ### *Output File (output.mc)*  
 Format:  
-
+```bash
 Final Registers:  
 R[0]: 0x00000000  
 ...  
@@ -69,7 +73,7 @@ R[0]: 0x00000000
 Final Memory State:  
 Mem[0x1000] = 0x12  
 ...  
-
+```
 
 ---
 
@@ -84,26 +88,44 @@ The simulator executes the machine code using the five-stage RISC-V pipeline mod
 5. Writeback (WB): The result of the execution (ALU result, memory read data, or immediate values) is written back to the appropriate register.
 
 ### Key Features:  
-- Implements 32 registers (x0 is hardwired to 0).  
-- Supports 4KB memory (0x00000000 to 0x00000FFF).  
+- Implements 32 registers (x0 is hardwired to 0).
 - Efficient handling of branching instructions (BEQ, BNE, JAL, JALR).  
 - Maintains clock cycle count to track execution performance.  
-- Implements exception handling for illegal instructions and memory access violations.  
-- Supports pipeline hazard detection and basic forwarding mechanisms.  
 - Provides step-by-step logging of each instruction execution.  
 
 ---
 
-## 4. Supported Instructions  
+## 4. Supported Instructions
 
-| Type  | Instructions |  
-|-----------|------------------|  
-| R-Type | add, sub, and, or, sll, srl |  
-| I-Type | addi, lb, lw, jalr |  
-| S-Type | sb, sw |  
-| SB-Type | beq, bne |  
-| U-Type | lui, auipc |  
-| UJ-Type | jal |  
+### R-Format Instructions
+```bash
+add, and, or, sll, slt, sra, srl, sub, xor, mul, div, rem
+```
+
+### I-Format Instructions
+```bash
+addi, andi, ori, lb, ld, lh, lw, jalr
+```
+
+### S-Format Instructions
+```bash
+sb, sw, sd, sh
+```
+
+### SB-Format Instructions
+```bash
+beq, bne, bge, blt
+```
+
+### U-Format Instructions
+```bash
+auipc, lui
+```
+
+### UJ-Format Instructions
+```bash
+jal
+```
 
 ---
 
@@ -123,21 +145,19 @@ The simulator executes the machine code using the five-stage RISC-V pipeline mod
 ## 6. Output Format  
 
 ### Registers  
-plaintext
+```bash
 Reg[0]: 0x00000000  
 Reg[1]: 0x12345678  
 
 
-### Memory  
-plaintext
+### Memory 
 Mem[0x1000] = 0x12  
 Mem[0x1004] = 0x34  
 
 
-### Clock Cycles  
-plaintext
+### Clock Cycles 
 Final Clock Cycles: 42  
-
+```
 
 ---
 
